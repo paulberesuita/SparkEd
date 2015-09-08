@@ -1,0 +1,10 @@
+2015-09-08 15:41:58.964 SparkEd[6326:461228] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/paulberesuita/Library/Developer/CoreSimulator/Devices/A0B4E11E-B7E6-4F7C-A2C7-4958273C944C/data/Containers/Data/Application/822E86FF-88B4-4206-83DB-BFB77C9EA6F9/Library/Cookies/Cookies.binarycookies
+2015-09-08 15:41:59.359 SparkEd[6326:461228] Apache Cordova native platform version 3.8.0 is starting.
+2015-09-08 15:41:59.360 SparkEd[6326:461228] Multi-tasking -> Device: YES, App: YES
+2015-09-08 15:41:59.384 SparkEd[6326:461228] Unlimited access to network resources
+2015-09-08 15:41:59.823 SparkEd[6326:461228] [CDVTimer][keyboard] 0.072002ms
+2015-09-08 15:42:00.057 SparkEd[6326:461228] [CDVTimer][splashscreen] 234.009981ms
+2015-09-08 15:42:00.057 SparkEd[6326:461228] [CDVTimer][TotalPluginStartup] 234.836042ms
+2015-09-08 15:42:00.539 SparkEd[6326:461228] Resetting plugins due to page load.
+2015-09-08 15:42:00.968 SparkEd[6326:461228] Finished load of: file:///Users/paulberesuita/Library/Developer/CoreSimulator/Devices/A0B4E11E-B7E6-4F7C-A2C7-4958273C944C/data/Containers/Bundle/Application/C21B7DD7-4264-491D-8418-733333855992/SparkEd.app/www/index.html#/signup
+2015-09-08 15:42:36.093 SparkEd[6326:462256] Terminating since there is no system app.
