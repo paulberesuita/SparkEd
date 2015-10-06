@@ -1,92 +1,33 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html ng-app="sparked">
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title></title>
 
     <style>
-      .angular-google-map-container {
-          width: 100%;
-          height: 504px;
-      }
+        .angular-google-map-container {
+            width: 100%;
+            height: 504px;
+        }
     </style>
 
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <script src="lib/ionic/js/ionic.bundle.js"></script>
 
     <link href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css" rel="stylesheet">
-
-    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
-    <link href="css/ionic.app.css" rel="stylesheet">
-    -->
-
-
+    <script src="app/app.js"></script>
+    <script src="app/connect/controllers/connectController.js"></script>
+    <script src="app/explore/controllers/exploreController.js"></script>
+    <script src="app/home/controllers/homeController.js"></script>
+    <script src="app/profile/controllers/profileController.js"></script>
+    <script src="app/welcome/controllers/welcomeController.js"></script>
     <script>
-// Ionic Starter App
-
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
-// 'starter.services' is found in services.js
-// 'starter.controllers' is found in controllers.js
-angular.module('app', ['ionic'])
-
-.run(function($ionicPlatform) {
-  $ionicPlatform.ready(function() {
-    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-    // for form inputs)
-    if(window.cordova && window.cordova.plugins.Keyboard) {
-      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-    }
-    if(window.StatusBar) {
-      // org.apache.cordova.statusbar required
-      StatusBar.styleDefault();
-    }
-  });
-})
-
-.config(function($stateProvider, $urlRouterProvider) {
-
-  // Ionic uses AngularUI Router which uses the concept of states
-  // Learn more here: https://github.com/angular-ui/ui-router
-  // Set up the various states which the app can be in.
-  // Each state's controller can be found in controllers.js
-  $stateProvider
-    
-    .state('page1', {
-      url: '/signup',
-      templateUrl: 'page1.html'
-    })
-    
-    .state('page2', {
-      url: '/page2',
-      templateUrl: 'page2.html'
-    })
-    
-    .state('page3', {
-      url: '/tabs',
-      templateUrl: 'page3.html'
-    })
-    
-    .state('page4', {
-      url: '/page4',
-      templateUrl: 'page4.html'
-    })
-    ;
-
-  // if none of the above states are matched, use this as the fallback
-  
-  $urlRouterProvider.otherwise('/signup');
-  
-
-});
-
 
     </script>
-  </head>
-  <body ng-app="app" animation="slide-left-right-ios7">
-  <div>
+</head>
+<body animation="slide-left-right-ios7">
+<div>
     <div>
         <ion-nav-bar class="bar-stable">
             <ion-nav-back-button class="button-icon icon ion-ios7-arrow-back">Back</ion-nav-back-button>
@@ -94,70 +35,5 @@ angular.module('app', ['ionic'])
         <ion-nav-view></ion-nav-view>
     </div>
 </div>
-<script id="page1.html" type="text/ng-template">
-<ion-view title="Welcome">
-    <ion-content padding="true" scroll="false" class="has-header">
-        <form>
-            <ion-list>
-                <label class="item item-input">
-                    <span class="input-label">Name</span>
-                    <input type="text" placeholder="">
-                </label>
-                <label class="item item-input">
-                    <span class="input-label">Username</span>
-                    <input type="text" placeholder="">
-                </label>
-                <label class="item item-input">
-                    <span class="input-label">Password</span>
-                    <input type="text" placeholder="">
-                </label>
-            </ion-list>
-            <button class="button button-stable button-block ">Sign up</button>
-        </form>
-    </ion-content>
-</ion-view></script>
-<script id="page2.html" type="text/ng-template">
-<ion-view title="Page">
-    <ion-content padding="true" class="has-header"></ion-content>
-</ion-view></script>
-<script id="page3.html" type="text/ng-template">
-<ion-view title="SparkEd">
-    <ion-tabs class="tabs-stable tabs-icon-top">
-        <ion-tab title="Home" icon="ion-home">
-            <ion-content padding="true" class="has-header">
-                <form>
-                    <ion-list></ion-list>
-                </form>
-            </ion-content>
-        </ion-tab>
-        <ion-tab title="Connect" icon="ion-android-earth">
-            <ion-content padding="true" class="has-header"></ion-content>
-        </ion-tab>
-        <ion-tab title="Analytics" icon="ion-information">
-            <ion-content padding="true" class="has-header"></ion-content>
-        </ion-tab>
-        <ion-tab title="Profile" icon="ion-ios7-person">
-            <ion-content padding="true" class="has-header"></ion-content>
-        </ion-tab>
-    </ion-tabs>
-</ion-view></script>
-<script id="page4.html" type="text/ng-template">
-<ion-view title="Topics of Interest">
-    <ion-content padding="true" class="has-header">
-        <h4>Let's get to know you</h4>
-        <h5>Please tell us what are some of your favorite subjects</h5>
-        <ion-list>
-            <ion-checkbox>Computer Science</ion-checkbox>
-            <ion-checkbox>Physics</ion-checkbox>
-            <ion-checkbox>Design</ion-checkbox>
-            <ion-checkbox>Economics</ion-checkbox>
-            <ion-checkbox>Math</ion-checkbox>
-            <ion-checkbox>Medicine</ion-checkbox>
-            <ion-checkbox>Social Sciences</ion-checkbox>
-            <ion-checkbox>Lite</ion-checkbox>
-        </ion-list>
-        <button class="button button-stable button-block ">Done</button>
-    </ion-content>
-</ion-view></script>
-  </body>
+</body>
 </html>
