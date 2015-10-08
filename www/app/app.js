@@ -34,7 +34,14 @@ angular.module('sparked', ['ionic'])
 
       .state('welcome', {
         url: '/welcome',
-        templateUrl: 'app/welcome/views/welcome.html'
+        templateUrl: 'app/welcome/views/welcome.html',
+        controller: 'WelcomeController as welcome'
+      })
+
+      .state('topics', {
+          url: '/topics',
+          templateUrl: 'app/topics/views/topics.html',
+          controller: 'TopicsController'
       })
 
       .state('home', {
@@ -56,8 +63,6 @@ angular.module('sparked', ['ionic'])
           url: '/profile',
           templateUrl: 'app/profile/views/profile.html'
       });
-
-      // if none of the above states are matched, use this as the fallback
 
       $urlRouterProvider.otherwise('/welcome');
 

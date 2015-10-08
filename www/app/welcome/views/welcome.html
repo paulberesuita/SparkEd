@@ -1,6 +1,42 @@
 <ion-view title="Welcome">
-    <ion-content padding="true" scroll="false" class="has-header">
-asdflasdjk
-        asdlfk;
+    <ion-content padding="true" scroll="false" class="has-header" ng-show="welcome.showLogin">
+        <div class="list list-inset">
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Email</span>
+                <input type="text" placeholder="john123" ng-model="welcome.existinguser.email">
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Password</span>
+                <input type="text" placeholder="123321" ng-model="welcome.existinguser.password">
+            </label>
+        </div>
+        <button class="button button-full button-positive" ng-click="welcome.loginExistingUser()">
+            Login
+        </button>
+        <button class="button button-full button-balanced" ng-click="welcome.switchForm()">
+            New User?
+        </button>
+    </ion-content>
+    <ion-content padding="true" scroll="false" class="has-header" ng-show="!welcome.showLogin">
+        <div class="list list-inset">
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Username</span>
+                <input type="text" placeholder="john123" ng-model="welcome.newuser.username">
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Email</span>
+                <input type="text" placeholder="john@suhr.com" ng-model="welcome.newuser.email">
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Password</span>
+                <input type="text" placeholder="123321" ng-model="welcome.newuser.password">
+            </label>
+        </div>
+        <button class="button button-full button-positive" ng-click="welcome.createNewUser()">
+            Sign Up
+        </button>
+        <button class="button button-full button-balanced" ng-click="welcome.switchForm()">
+            Already Signed Up
+        </button>
     </ion-content>
 </ion-view>
