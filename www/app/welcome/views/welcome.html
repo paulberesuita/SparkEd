@@ -1,4 +1,6 @@
 <ion-view title="Welcome">
+
+    <!--Login Screen-->
     <ion-content padding="true" scroll="false" class="has-header" ng-show="welcome.showLogin">
         <div class="list list-inset">
             <label class="item item-input item-stacked-label">
@@ -10,13 +12,21 @@
                 <input type="text" placeholder="123321" ng-model="welcome.existinguser.password">
             </label>
         </div>
-        <button class="button button-full button-positive" ng-click="welcome.loginExistingUser()">
+        <div class="card" ng-show="welcome.wrongLogin">
+            <div class="item item-text-wrap assertive">
+                Wrong username/password, please try again.
+            </div>
+        </div>
+        <button class="button button-full button-calm" ng-click="welcome.loginExistingUser()">
             Login
         </button>
         <button class="button button-full button-balanced" ng-click="welcome.switchForm()">
-            New User?
+        I am a new user
         </button>
+
     </ion-content>
+
+    <!--Sign Up Screen-->
     <ion-content padding="true" scroll="false" class="has-header" ng-show="!welcome.showLogin">
         <div class="list list-inset">
             <label class="item item-input item-stacked-label">

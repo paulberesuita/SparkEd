@@ -22,6 +22,7 @@
         };
 
         vm.showLogin = true;
+        vm.wrongLogin = false;
 
         vm.switchForm = function() {
             vm.showLogin = !vm.showLogin;
@@ -34,6 +35,7 @@
             promise.then(function(greeting) {
                 $state.go('topics');
             }, function(reason) {
+
             });
         };
 
@@ -42,8 +44,10 @@
             var promise = AuthenticationFirebase.loginUser(vm.existinguser.email, vm.existinguser.password);
 
             promise.then(function(greeting) {
-                $state.go('home');
+                vm.wrongLogin = false;
+                $state.go('tabs.home');
             }, function(reason) {
+                vm.wrongLogin = true;
             });
 
         };

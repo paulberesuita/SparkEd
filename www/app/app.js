@@ -37,32 +37,48 @@ angular.module('sparked', ['ionic', 'youtube-embed'])
         templateUrl: 'app/welcome/views/welcome.html',
         controller: 'WelcomeController as welcome'
       })
-
       .state('topics', {
           url: '/topics',
           templateUrl: 'app/topics/views/topics.html',
           controller: 'TopicsController'
       })
-
-      .state('home', {
-        url: '/home',
-        templateUrl: 'app/home/views/home.html',
-        controller: 'HomeController'
+      .state('tabs', {
+          url: "/tab",
+          abstract: true,
+          templateUrl: 'app/tabs/tabs.html'
       })
-
-      .state('connect', {
-        url: '/connect',
-        templateUrl: 'app/connect/views/connect.html'
+      .state('tabs.home', {
+          url: '/home',
+          views: {
+              'home-tab': {
+                  templateUrl: 'app/home/views/home.html',
+                  controller: 'HomeController'
+              }
+          }
       })
-
-      .state('explore', {
-        url: '/explore',
-        templateUrl: 'app/explore/views/explore.html'
+      .state('tabs.explore', {
+          url: '/explore',
+          views: {
+              'explore-tab': {
+                  templateUrl: 'app/explore/views/explore.html'
+              }
+          }
       })
-
-      .state('profile', {
+      .state('tabs.connect', {
+          url: '/connect',
+          views: {
+              'connect-tab': {
+                  templateUrl: 'app/connect/views/connect.html'
+              }
+          }
+      })
+      .state('tabs.profile', {
           url: '/profile',
-          templateUrl: 'app/profile/views/profile.html'
+          views: {
+              'profile-tab': {
+                  templateUrl: 'app/profile/views/profile.html'
+              }
+          }
       });
 
       $urlRouterProvider.otherwise('/welcome');
