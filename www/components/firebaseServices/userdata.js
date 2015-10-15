@@ -4,23 +4,21 @@
 
     angular.module('sparked').factory('UserDataFirebase', UserDataFirebase);
 
-    UserDataFirebase.$inject = ['$q', '$ionicLoading'];
+    UserDataFirebase.$inject = ['$q', '$ionicLoading', '$firebaseAuth', '$firebaseObject', '$firebaseArray'];
 
-    function UserDataFirebase($q, $ionicLoading) {
-
-        var ref = new Firebase("https://paul-sparkedu.firebaseio.com/");
+    function UserDataFirebase($q, $ionicLoading, $firebaseAuth, $firebaseObject, $firebaseArray) {
 
         var service = {
-            saveData: saveData
+            saveUserTopicsData: saveUserTopicsData
         };
 
         return service;
 
-        function saveData(data) {
+        function saveUserTopicsData(userpath, dataValue) {
 
-            var deferred = $q.defer();
-
-            return deferred.promise;
+            var path = "https://paul-sparkedu.firebaseio.com/users/" + userpath;
+            var ref = new Firebase(path);
+            ref.update({ topics: dataValue});
 
         }
 

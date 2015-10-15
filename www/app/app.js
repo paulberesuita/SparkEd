@@ -5,8 +5,11 @@
 // the 2nd parameter is an array of 'requires'
 angular.module('sparked', ['ionic', 'youtube-embed', 'firebase'])
 
-.run(function($ionicPlatform) {
-  $ionicPlatform.ready(function() {
+.run(function($ionicPlatform, $rootScope) {
+
+    $rootScope.currentUserPathID = "";
+
+    $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs).
     // The reason we default this to hidden is that native apps don't usually show an accessory bar, at
@@ -22,7 +25,8 @@ angular.module('sparked', ['ionic', 'youtube-embed', 'firebase'])
       // remove the status bar on iOS or change it to use white instead of dark colors.
       StatusBar.styleDefault();
     }
-  });
+    });
+
 }).config(function($stateProvider, $urlRouterProvider) {
 
       // Ionic uses AngularUI Router which uses the concept of states

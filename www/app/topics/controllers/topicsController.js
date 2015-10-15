@@ -31,6 +31,8 @@
 
         vm.switchToHome = function() {
 
+            UserDataFirebase.saveUserTopicsData($rootScope.currentUserPathID, vm.selected);
+
             vm.showLogin = !vm.showLogin;
         };
 
