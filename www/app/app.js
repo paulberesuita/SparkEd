@@ -80,7 +80,8 @@ angular.module('sparked', ['ionic', 'youtube-embed', 'firebase'])
           url: '/profile',
           views: {
               'profile-tab': {
-                  templateUrl: 'app/profile/views/profile.html'
+                  templateUrl: 'app/profile/views/profile.html',
+                  controller: 'ProfileController as profile'
               }
           }
       });

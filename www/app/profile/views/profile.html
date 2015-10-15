@@ -15,9 +15,9 @@
             <div class="item item-divider">
                 Topics of Interest
             </div>
-            <div class="item">
-                Raiders of the Lost Ark
-            </div>
+            <ion-list>
+                <ion-item ng-repeat="topic in profile.topicsnames" ng-model="topics.selected[topic.name]">{{topic.name}}</ion-item>
+            </ion-list>
 
         </div>
 

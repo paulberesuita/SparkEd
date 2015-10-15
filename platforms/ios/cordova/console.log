@@ -8,3 +8,34 @@
 2015-09-08 15:42:00.539 SparkEd[6326:461228] Resetting plugins due to page load.
 2015-09-08 15:42:00.968 SparkEd[6326:461228] Finished load of: file:///Users/paulberesuita/Library/Developer/CoreSimulator/Devices/A0B4E11E-B7E6-4F7C-A2C7-4958273C944C/data/Containers/Bundle/Application/C21B7DD7-4264-491D-8418-733333855992/SparkEd.app/www/index.html#/signup
 2015-09-08 15:42:36.093 SparkEd[6326:462256] Terminating since there is no system app.
+2015-10-07 23:58:35.552 SparkEd[31995:2170504] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/paulberesuita/Library/Developer/CoreSimulator/Devices/CF0437D9-038A-4D07-BBA0-8B1EA817F7C9/data/Containers/Data/Application/67614691-B275-4C40-AFC2-9D27C00CB5E5/Library/Cookies/com.ionicframework.sparked634920.binarycookies
+2015-10-07 23:58:35.974 SparkEd[31995:2170504] Apache Cordova native platform version 3.8.0 is starting.
+2015-10-07 23:58:35.975 SparkEd[31995:2170504] Multi-tasking -> Device: YES, App: YES
+2015-10-07 23:58:36.002 SparkEd[31995:2170504] Unlimited access to network resources
+2015-10-07 23:58:36.440 SparkEd[31995:2170504] [CDVTimer][keyboard] 0.113010ms
+2015-10-07 23:58:36.985 SparkEd[31995:2170504] [CDVTimer][splashscreen] 544.995010ms
+2015-10-07 23:58:36.985 SparkEd[31995:2170504] [CDVTimer][TotalPluginStartup] 545.607030ms
+2015-10-07 23:58:37.114 SparkEd[31995:2170504] Resetting plugins due to page load.
+2015-10-07 23:58:37.272 SparkEd[31995:2170989] App Transport Security has blocked a cleartext HTTP (http://) resource load since it is insecure. Temporary exceptions can be configured via your app's Info.plist file.
+2015-10-07 23:58:38.268 SparkEd[31995:2170504] Finished load of: file:///Users/paulberesuita/Library/Developer/CoreSimulator/Devices/CF0437D9-038A-4D07-BBA0-8B1EA817F7C9/data/Containers/Bundle/Application/50089F9D-FF7D-48EC-9E58-BF7FA46C71A9/SparkEd.app/www/index.html#/welcome
+2015-10-08 00:01:08.909 SparkEd[32189:2174002] Apache Cordova native platform version 3.8.0 is starting.
+2015-10-08 00:01:08.910 SparkEd[32189:2174002] Multi-tasking -> Device: YES, App: YES
+2015-10-08 00:01:08.912 SparkEd[32189:2174002] Unlimited access to network resources
+2015-10-08 00:01:08.960 SparkEd[32189:2174002] [CDVTimer][keyboard] 0.072002ms
+2015-10-08 00:01:09.130 SparkEd[32189:2174002] [CDVTimer][splashscreen] 170.086026ms
+2015-10-08 00:01:09.130 SparkEd[32189:2174002] [CDVTimer][TotalPluginStartup] 170.727015ms
+2015-10-08 00:01:09.197 SparkEd[32189:2174002] Resetting plugins due to page load.
+2015-10-08 00:01:09.243 SparkEd[32189:2174179] App Transport Security has blocked a cleartext HTTP (http://) resource load since it is insecure. Temporary exceptions can be configured via your app's Info.plist file.
+2015-10-08 00:01:09.884 SparkEd[32189:2174002] Finished load of: file:///Users/paulberesuita/Library/Developer/CoreSimulator/Devices/CF0437D9-038A-4D07-BBA0-8B1EA817F7C9/data/Containers/Bundle/Application/30BB0185-3235-4ABC-95C5-EB83DCA8EFA9/SparkEd.app/www/index.html#/welcome
+2015-10-08 00:01:41.416 SparkEd[32189:2174002] Resetting plugins due to page load.
+2015-10-08 00:01:42.452 SparkEd[32189:2174002] Failed to load webpage with error: The operation couldn’t be completed. (NSURLErrorDomain error -999.)
+2015-10-08 00:02:25.487 SparkEd[32189:2174002] Resetting plugins due to page load.
+2015-10-08 00:02:53.059 SparkEd[32374:2175914] Apache Cordova native platform version 3.8.0 is starting.
+2015-10-08 00:02:53.061 SparkEd[32374:2175914] Multi-tasking -> Device: YES, App: YES
+2015-10-08 00:02:53.063 SparkEd[32374:2175914] Unlimited access to network resources
+2015-10-08 00:02:53.101 SparkEd[32374:2175914] [CDVTimer][keyboard] 0.077009ms
+2015-10-08 00:02:53.225 SparkEd[32374:2175914] [CDVTimer][splashscreen] 123.093963ms
+2015-10-08 00:02:53.225 SparkEd[32374:2175914] [CDVTimer][TotalPluginStartup] 123.664021ms
+2015-10-08 00:02:53.312 SparkEd[32374:2175914] Resetting plugins due to page load.
+2015-10-08 00:02:53.370 SparkEd[32374:2175990] App Transport Security has blocked a cleartext HTTP (http://) resource load since it is insecure. Temporary exceptions can be configured via your app's Info.plist file.
+2015-10-08 00:02:54.492 SparkEd[32374:2175914] Finished load of: file:///Users/paulberesuita/Library/Developer/CoreSimulator/Devices/CF0437D9-038A-4D07-BBA0-8B1EA817F7C9/data/Containers/Bundle/Application/F62EFCF8-8575-4CDD-96D0-03D4213CE1AF/SparkEd.app/www/index.html#/welcome

@@ -4,9 +4,9 @@
 
     angular.module('sparked').controller('TopicsController', TopicsController);
 
-    TopicsController.$inject = ['$scope', '$rootScope', 'ServicesDataFirebase', '$firebaseObject', '$firebaseArray', 'UserDataFirebase'];
+    TopicsController.$inject = ['$scope', '$rootScope', 'ServicesDataFirebase', '$firebaseObject', '$firebaseArray', 'UserDataFirebase', '$state'];
 
-    function TopicsController($scope, $rootScope, ServicesDataFirebase, $firebaseObject, $firebaseArray, UserDataFirebase) {
+    function TopicsController($scope, $rootScope, ServicesDataFirebase, $firebaseObject, $firebaseArray, UserDataFirebase, $state) {
 
         var vm = this;
 
@@ -32,6 +32,7 @@
         vm.switchToHome = function() {
 
             UserDataFirebase.saveUserTopicsData($rootScope.currentUserPathID, vm.selected);
+            $state.go('tabs.home');
 
             vm.showLogin = !vm.showLogin;
         };
