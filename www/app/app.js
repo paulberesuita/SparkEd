@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('sparked', ['ionic', 'youtube-embed'])
+angular.module('sparked', ['ionic', 'youtube-embed', 'firebase'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -40,7 +40,7 @@ angular.module('sparked', ['ionic', 'youtube-embed'])
       .state('topics', {
           url: '/topics',
           templateUrl: 'app/topics/views/topics.html',
-          controller: 'TopicsController'
+          controller: 'TopicsController as topics'
       })
       .state('tabs', {
           url: "/tab",

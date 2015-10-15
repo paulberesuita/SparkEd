@@ -3,15 +3,8 @@
         <h4>Let's get to know you</h4>
         <h5>Please tell us what are some of your favorite subjects</h5>
         <ion-list>
-            <ion-checkbox>Computer Science</ion-checkbox>
-            <ion-checkbox>Physics</ion-checkbox>
-            <ion-checkbox>Design</ion-checkbox>
-            <ion-checkbox>Economics</ion-checkbox>
-            <ion-checkbox>Math</ion-checkbox>
-            <ion-checkbox>Medicine</ion-checkbox>
-            <ion-checkbox>Social Sciences</ion-checkbox>
-            <ion-checkbox>Lite</ion-checkbox>
+            <ion-checkbox ng-repeat="topic in topics.topicsnames" ng-model="topics.selected[topic.name]">{{topic.name}}</ion-checkbox>
         </ion-list>
-        <button class="button button-stable button-block ">Done</button>
+        <button class="button button-stable button-block" ng-click="topics.switchToHome()">Done</button>
     </ion-content>
 </ion-view>

@@ -17,7 +17,7 @@
 
         return service;
 
-        function createUser(username, email, password) {
+        function createUser(email, password) {
 
             var deferred = $q.defer();
 
@@ -35,10 +35,13 @@
                     console.log("Error creating user:", error);
                 } else {
                     $ionicLoading.hide();
-                    deferred.resolve(userData.uid);
+                    deferred.resolve(userData);
                     console.log("Successfully created user account with uid:", userData.uid);
                 }
             });
+
+            return deferred.promise;
+
         }
 
         function loginUser(email, password) {
