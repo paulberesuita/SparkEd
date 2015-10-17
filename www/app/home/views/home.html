@@ -1,28 +1,18 @@
 <ion-view title="Home">
     <ion-content padding="true" scroll="true" class="has-header">
         <div class="row responsive-md">
-            <!--<ion-list>-->
-                <!--<ion-checkbox ng-repeat="topic in topics.topicsnames" ng-model="topics.selected[topic.name]">{{topic.name}}</ion-checkbox>-->
-            <!--</ion-list>-->
+
             <div class="col" ng-repeat="content in home.allcontent">
                 <div class="list card">
 
                     <div class="item item-avatar item-icon-left">
                         <i class="icon ion-ios-videocam-outline"></i>
                         <h2>{{content.name}}</h2>
-
                     </div>
-
-                    <!--<div class="item item-image">-->
-                        <!--<div class="embed-responsive embed-responsive-16by9">-->
-                            <!--<youtube-video class="embed-responsive-item" video-url="videoTwoURL"></youtube-video>-->
-                        <!--</div>-->
-                    <!--</div>-->
 
                     <div class="item item-image">
                         <div class="embed-responsive embed-responsive-16by9">
-                            <iframe width="560" height="315" ng-src="{{content.url}}"frameborder="0" allowfullscreen></iframe>
-                            <!--<iframe class="embed-responsive-item" ng-src="{{content.url}}"></iframe>-->
+                            <iframe width="560" height="315"  ng-src="{{trustSrc(content.link)}}" frameborder="0" allowfullscreen></iframe>
                         </div>
                     </div>
 
@@ -33,72 +23,7 @@
 
                 </div>
             </div>
-            <!--<div class="col">-->
-                <!--<div class="list card">-->
 
-                    <!--<div class="item item-avatar item-icon-left">-->
-                        <!--<i class="icon ion-ios-videocam-outline"></i>-->
-                        <!--<h2>Why do we Fall</h2>-->
-                        <!--<p>Nine Inch Nails</p>-->
-                    <!--</div>-->
-
-                    <!--<div class="item item-image">-->
-                        <!--<div class="embed-responsive embed-responsive-16by9">-->
-                            <!--<youtube-video class="embed-responsive-item" video-url="videoTwoURL"></youtube-video>-->
-                        <!--</div>-->
-                    <!--</div>-->
-
-                    <!--<a class="item item-icon-left assertive" href="#">-->
-                        <!--<i class="icon ion-happy-outline"></i>-->
-                        <!--Never Give Up!-->
-                    <!--</a>-->
-
-                <!--</div>-->
-            <!--</div>-->
-            <!--<div class="col">-->
-                <!--<div class="list card">-->
-
-                    <!--<div class="item item-avatar item-icon-left">-->
-                        <!--<i class="icon ion-ios-videocam-outline"></i>-->
-                        <!--<h2>Why do we Fall</h2>-->
-                        <!--<p>Nine Inch Nails</p>-->
-                    <!--</div>-->
-
-                    <!--<div class="item item-image">-->
-                        <!--<div class="embed-responsive embed-responsive-16by9">-->
-                            <!--<youtube-video class="embed-responsive-item" video-url="videoTwoURL"></youtube-video>-->
-                        <!--</div>-->
-                    <!--</div>-->
-
-                    <!--<a class="item item-icon-left assertive" href="#">-->
-                        <!--<i class="icon ion-happy-outline"></i>-->
-                        <!--Never Give Up!-->
-                    <!--</a>-->
-
-                <!--</div>-->
-            <!--</div>-->
-            <!--<div class="col">-->
-                <!--<div class="list card">-->
-
-                    <!--<div class="item item-avatar item-icon-left">-->
-                        <!--<i class="icon ion-ios-videocam-outline"></i>-->
-                        <!--<h2>Why do we Fall</h2>-->
-                        <!--<p>Nine Inch Nails</p>-->
-                    <!--</div>-->
-
-                    <!--<div class="item item-image">-->
-                        <!--<div class="embed-responsive embed-responsive-16by9">-->
-                            <!--<youtube-video class="embed-responsive-item" video-url="videoTwoURL"></youtube-video>-->
-                        <!--</div>-->
-                    <!--</div>-->
-
-                    <!--<a class="item item-icon-left assertive" href="#">-->
-                        <!--<i class="icon ion-happy-outline"></i>-->
-                        <!--Never Give Up!-->
-                    <!--</a>-->
-
-                <!--</div>-->
-            <!--</div>-->
         </div>
     </ion-content>
 </ion-view>
