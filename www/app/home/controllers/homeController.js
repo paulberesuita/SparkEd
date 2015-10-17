@@ -14,7 +14,15 @@
         vm.mathStack = [];
         vm.generalStack = [];
 
+
+        //80% perfect of user stack will contain selected topics; the other 20% will contain non-selected topics
+        //Step 1: create user stack
         vm.userStack = [];
+        //Step 2: determine how many topics selected
+
+        //Step 3: based on number of topics selected determine what percentage of the 80% will be split among the topics
+
+        //Step 4: The news need will contain at most 20 items for now; While the selected topics stack contain data keep pushing to the user stack
 
         $scope.trustSrc = function(src) {
             return $sce.trustAsResourceUrl(src);
