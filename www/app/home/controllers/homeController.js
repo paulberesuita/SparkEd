@@ -4,27 +4,59 @@
 
     angular.module('sparked').controller('HomeController', HomeController);
 
-    HomeController.$inject = ['$scope', '$sce'];
+    HomeController.$inject = ['$scope', '$sce', 'ServicesDataFirebase'];
 
-    function HomeController($scope, $sce) {
+    function HomeController($scope, $sce, ServicesDataFirebase) {
 
         var vm = this;
 
-        //$scope.linktest = $sce.trustAsResourceUrl('https://www.youtube.com/embed/YU2LP2QpUaE');
+        vm.computerScienceStack = [];
+        vm.mathStack = [];
+        vm.generalStack = [];
 
-        vm.allcontent = [
-            {name: "Video 1 Title", link:'https://www.youtube.com/embed/YU2LP2QpUaE'},
-            {name: "Video 2 Title", link:'https://www.youtube.com/embed/kYfNvmF0Bqw'},
-            {name: "Video 3 Title", link:'https://www.youtube.com/embed/kYfNvmF0Bqw'},
-            {name: "Video 4 Title", link:'https://www.youtube.com/embed/kYfNvmF0Bqw'}
-        ];
-
-        $scope.videoOneURL = 'https://www.youtube.com/embed/kYfNvmF0Bqw';
-        $scope.videoTwoURL = 'https://www.youtube.com/watch?t=305&v=mgmVOuLgFB0';
+        vm.userStack = [];
 
         $scope.trustSrc = function(src) {
             return $sce.trustAsResourceUrl(src);
-        }
+        };
+
+        //Loading topics for new users
+        var contentPromise = ServicesDataFirebase.getContent();
+        contentPromise.then(function(content) {
+
+            var allcontentArray = _.values(content);
+
+            for (var i = 0; i < allcontentArray.length; i++) {
+
+                if(allcontentArray[i].computerscience) {
+
+                    var allcontentArrayComputerScience = _.values(allcontentArray[i].computerscience);
+
+                    for(var c = 0; c < allcontentArrayComputerScience.length; c++) {
+
+                        vm.computerScienceStack.push({name: allcontentArrayComputerScience[c].name, link: allcontentArrayComputerScience[c].link});
+                    }
+                }
+
+                if(allcontentArray[i].math) {
+
+                    var allcontentArrayMath = _.values(allcontentArray[i].math);
+
+                    for(var m = 0; m < allcontentArrayMath.length; m++) {
+
+                        vm.mathStack.push({name: allcontentArrayMath[m].name, link: allcontentArrayMath[m].link});
+                    }
+                }
+
+            }
+
+            console.log("content loaded");
+
+        }, function(reason) {
+
+            console.error(reason);
+
+        });
 
     };
 

@@ -11,7 +11,8 @@
         var ref = new Firebase("https://paul-sparkedu.firebaseio.com/");
 
         var service = {
-            getTopics: getTopics
+            getTopics: getTopics,
+            getContent: getContent
         };
 
         return service;
@@ -27,6 +28,28 @@
                 var topicsArray = _.values(allData.topics);
 
                 deferred.resolve(topicsArray);
+
+            }).catch(function(err) {
+
+                deferred.reject(err);
+
+            });
+
+            return deferred.promise;
+
+        }
+
+        function getContent() {
+
+            var deferred = $q.defer();
+
+            var allData = $firebaseObject(ref);
+
+            allData.$loaded().then(function() {
+
+                //var coursesArray = _.values(allData.content);
+
+                deferred.resolve(allData.content);
 
             }).catch(function(err) {
 
