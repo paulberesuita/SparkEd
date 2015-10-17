@@ -56,7 +56,7 @@ angular.module('sparked', ['ionic', 'youtube-embed', 'firebase'])
           views: {
               'home-tab': {
                   templateUrl: 'app/home/views/home.html',
-                  controller: 'HomeController'
+                  controller: 'HomeController as home'
               }
           }
       })
