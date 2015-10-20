@@ -26,6 +26,17 @@
 
         });
 
+        vm.sendMessage = function() {
+
+            var factsRef = new Firebase("https://paul-sparkedu.firebaseio.com/facts");
+            var factsContent = $firebaseArray(factsRef);
+            factsContent.$add({topic: "Computer Science",
+                               message: "6 - Only 8% of the world’s currency is physical money, the rest only exists on computers.",
+                               number: "16787738013"});
+
+            console.log("test button");
+        }
+
     };
 
 
