@@ -12,12 +12,12 @@
 
             <div class="item item-icon-left item-button-right">
                 <i class="icon ion-ios-telephone"></i>
-                <!--<span>678-773-8013</span>-->
-                <!--<button class="button button-positive">-->
-                    <!--Edit-->
-                <!--</button>-->
-                <input type="text" placeholder="Telephone Number">
-                <button class="button button-positive button-small">
+                <span ng-show="!profile.editMode" >{{profile.userNumber}}</span>
+                <button ng-show="!profile.editMode" class="button button-positive" ng-click="profile.goToEditMode()">
+                    Edit
+                </button>
+                <input  ng-show="profile.editMode" type="text" placeholder="Telephone Number" ng-model="profile.userNumber">
+                <button ng-show="profile.editMode" class="button button-balanced" style="margin-top: 8px;" ng-click="profile.saveUserNumber()">
                     Save
                 </button>
             </div>

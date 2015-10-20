@@ -10,6 +10,8 @@
 
         var vm = this;
         vm.topicsnames = [];
+        vm.userNumber = "Enter Number";
+        vm.editMode = false;
 
         var getTopicsPromise = UserDataFirebase.getUserTopics($rootScope.currentUserPathID);
 
@@ -25,6 +27,19 @@
             console.error(reason);
 
         });
+
+        vm.saveUserNumber = function() {
+
+            //We need to append one to the number because twillio service is worldwide and needs area code
+            var appendedOne = "1" + vm.userNumber;
+
+            UserDataFirebase.saveUserTelelphoneNumber($rootScope.currentUserPathID, appendedOne);
+            vm.editMode = !vm.editMode;
+        };
+
+        vm.goToEditMode = function () {
+            vm.editMode = !vm.editMode;
+        };
 
         vm.sendMessage = function() {
 

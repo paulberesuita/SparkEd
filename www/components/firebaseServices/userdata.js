@@ -10,7 +10,8 @@
 
         var service = {
             saveUserTopicsData: saveUserTopicsData,
-            getUserTopics: getUserTopics
+            getUserTopics: getUserTopics,
+            saveUserTelelphoneNumber: saveUserTelelphoneNumber
         };
 
         return service;
@@ -21,6 +22,12 @@
             var ref = new Firebase(path);
             ref.update({ topics: dataValue});
 
+        }
+
+        function saveUserTelelphoneNumber(userpath, dataValue) {
+            var path = "https://paul-sparkedu.firebaseio.com/users/" + userpath;
+            var ref = new Firebase(path);
+            ref.update({ number: dataValue});
         }
 
         function getUserTopics(userpath) {
