@@ -12,7 +12,8 @@
 
         var service = {
             getTopics: getTopics,
-            getContent: getContent
+            getContent: getContent,
+            getAll: getAll
         };
 
         return service;
@@ -50,6 +51,28 @@
                 //var coursesArray = _.values(allData.content);
 
                 deferred.resolve(allData.content);
+
+            }).catch(function(err) {
+
+                deferred.reject(err);
+
+            });
+
+            return deferred.promise;
+
+        }
+
+        function getAll() {
+
+            var deferred = $q.defer();
+
+            var allData = $firebaseObject(ref);
+
+            allData.$loaded().then(function() {
+
+                //var coursesArray = _.values(allData.content);
+
+                deferred.resolve(allData);
 
             }).catch(function(err) {
 

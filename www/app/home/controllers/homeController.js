@@ -4,9 +4,9 @@
 
     angular.module('sparked').controller('HomeController', HomeController);
 
-    HomeController.$inject = ['$scope', '$sce', 'ServicesDataFirebase'];
+    HomeController.$inject = ['$scope', '$rootScope', '$sce', 'ServicesDataFirebase', 'UserDataFirebase'];
 
-    function HomeController($scope, $sce, ServicesDataFirebase) {
+    function HomeController($scope, $rootScope, $sce, ServicesDataFirebase, UserDataFirebase) {
 
         var vm = this;
 
@@ -19,7 +19,7 @@
         //Step 1: create user stack
         vm.userStack = [];
         //Step 2: determine how many topics selected
-
+        vm.numberOfTopicsSelected = 0;
         //Step 3: based on number of topics selected determine what percentage of the 80% will be split among the topics
 
         //Step 4: The news need will contain at most 20 items for now; While the selected topics stack contain data keep pushing to the user stack
@@ -27,6 +27,18 @@
         $scope.trustSrc = function(src) {
             return $sce.trustAsResourceUrl(src);
         };
+
+        var getTopicsPromise = UserDataFirebase.getUserTopics($rootScope.currentUserPathID);
+
+        getTopicsPromise.then(function(topics) {
+
+            vm.numberOfTopicsSelected = topics.length
+
+        }, function(reason) {
+
+            console.error(reason);
+
+        });
 
         //Loading topics for new users
         var contentPromise = ServicesDataFirebase.getContent();
@@ -43,6 +55,8 @@
                     for(var c = 0; c < allcontentArrayComputerScience.length; c++) {
 
                         vm.computerScienceStack.push({name: allcontentArrayComputerScience[c].name, link: allcontentArrayComputerScience[c].link});
+                        vm.userStack.push({name: allcontentArrayComputerScience[c].name, link: allcontentArrayComputerScience[c].link});
+
                     }
                 }
 
@@ -53,6 +67,8 @@
                     for(var m = 0; m < allcontentArrayMath.length; m++) {
 
                         vm.mathStack.push({name: allcontentArrayMath[m].name, link: allcontentArrayMath[m].link});
+                        vm.userStack.push({name: allcontentArrayMath[m].name, link: allcontentArrayMath[m].link});
+
                     }
                 }
 

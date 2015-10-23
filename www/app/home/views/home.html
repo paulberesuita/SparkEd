@@ -1,18 +1,19 @@
 <ion-view title="Home">
     <ion-content padding="true" scroll="true" class="has-header">
-        <div class="row responsive-md responsive-lg">
 
-            <div class="col" ng-repeat="content in home.mathStack">
+        <div class="row responsive-sm  responsive-md" ng-repeat="content in home.userStack" ng-if="$index % 2 == 0">
+
+            <div class="col col-50" >
                 <div class="list card">
 
                     <div class="item item-avatar item-icon-left">
                         <i class="icon ion-ios-videocam-outline"></i>
-                        <h2>{{content.name}}</h2>
+                        <h2>{{home.userStack[$index].name}}</h2>
                     </div>
 
                     <div class="item item-image">
                         <div class="embed-responsive embed-responsive-16by9">
-                            <iframe width="560" height="315"  ng-src="{{trustSrc(content.link)}}" frameborder="0" allowfullscreen></iframe>
+                            <iframe class="embed-responsive-item" ng-src="{{trustSrc(home.userStack[$index].link)}}" frameborder="0" allowfullscreen></iframe>
                         </div>
                     </div>
 
@@ -23,6 +24,29 @@
 
                 </div>
             </div>
+
+            <div class="col col-50" >
+                <div class="list card">
+
+                    <div class="item item-avatar item-icon-left">
+                        <i class="icon ion-ios-videocam-outline"></i>
+                        <h2>{{home.userStack[$index+1].name}}</h2>
+                    </div>
+
+                    <div class="item item-image">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item" ng-src="{{trustSrc(home.userStack[$index+1].link)}}" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+
+                    <a class="item item-icon-left assertive" href="#">
+                        <i class="icon ion-happy-outline"></i>
+                        Never Give Up!
+                    </a>
+
+                </div>
+            </div>
+
 
         </div>
     </ion-content>

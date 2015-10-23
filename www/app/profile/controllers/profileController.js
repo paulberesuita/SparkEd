@@ -4,9 +4,9 @@
 
     angular.module('sparked').controller('ProfileController', ProfileController);
 
-    ProfileController.$inject = ['$scope', '$rootScope', 'AuthenticationFirebase', '$state', '$firebaseArray', '$firebaseObject', 'UserDataFirebase'];
+    ProfileController.$inject = ['$scope', '$rootScope', 'AuthenticationFirebase', '$state', '$firebaseArray', '$firebaseObject', 'UserDataFirebase', 'ServicesDataFirebase'];
 
-    function ProfileController($scope, $rootScope, AuthenticationFirebase, $state, $firebaseArray, $firebaseObject, UserDataFirebase) {
+    function ProfileController($scope, $rootScope, AuthenticationFirebase, $state, $firebaseArray, $firebaseObject, UserDataFirebase, ServicesDataFirebase) {
 
         var vm = this;
         vm.topicsnames = [];
@@ -43,13 +43,27 @@
 
         vm.sendMessage = function() {
 
-            var factsRef = new Firebase("https://paul-sparkedu.firebaseio.com/facts");
-            var factsContent = $firebaseArray(factsRef);
-            factsContent.$add({topic: "Computer Science",
-                               message: "6 - Only 8% of the world’s currency is physical money, the rest only exists on computers.",
-                               number: "16787738013"});
+            var contentPromise = ServicesDataFirebase.getAll();
+            contentPromise.then(function(content) {
 
-            console.log("test button");
+                var allUsersArray = _.values(content.users);
+
+                for(var i = 0; i < allUsersArray.length; i++) {
+
+                    var factsRef = new Firebase("https://paul-sparkedu.firebaseio.com/sentMessages");
+                    var factsContent = $firebaseArray(factsRef);
+                    factsContent.$add({message: _.values(content.facts)[_.values(content.facts).length-1].message,
+                                       number: allUsersArray[i].number});
+                }
+
+                console.log("Sent Notification");
+
+            }, function(reason) {
+
+                console.error(reason);
+
+            });
+
         }
 
     };
