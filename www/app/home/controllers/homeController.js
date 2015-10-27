@@ -54,8 +54,8 @@
 
                     for(var c = 0; c < allcontentArrayComputerScience.length; c++) {
 
-                        vm.computerScienceStack.push({name: allcontentArrayComputerScience[c].name, link: allcontentArrayComputerScience[c].link});
-                        vm.userStack.push({name: allcontentArrayComputerScience[c].name, link: allcontentArrayComputerScience[c].link});
+                        vm.computerScienceStack.push({name: allcontentArrayComputerScience[c].name, videourl: allcontentArrayComputerScience[c].videourl});
+                        vm.userStack.push({name: allcontentArrayComputerScience[c].name, videourl: allcontentArrayComputerScience[c].videourl});
 
                     }
                 }
@@ -66,8 +66,8 @@
 
                     for(var m = 0; m < allcontentArrayMath.length; m++) {
 
-                        vm.mathStack.push({name: allcontentArrayMath[m].name, link: allcontentArrayMath[m].link});
-                        vm.userStack.push({name: allcontentArrayMath[m].name, link: allcontentArrayMath[m].link});
+                        vm.mathStack.push({name: allcontentArrayMath[m].name, videourl: allcontentArrayMath[m].videourl});
+                        vm.userStack.push({name: allcontentArrayMath[m].name, videourl: allcontentArrayMath[m].videourl});
 
                     }
                 }
