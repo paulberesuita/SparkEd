@@ -72,20 +72,24 @@
             }
 
             vm.userTopics = data[1];
-            vm.numberOfItemsToDisplay = 4; //Total will be 4 * number of topics selected
+            vm.numberOfItemsToDisplay = 12; //Total will be 4 * number of topics selected
             while(vm.numberOfItemsToDisplay != 0) {
 
                 for (var i = 0; i < vm.userTopics.length; i++) {
 
                     if(vm.userTopics[i] === "Computer Science") {
 
-                        vm.userStack.push({name: vm.computerScienceStack[computerScienceIndex].name, videourl: vm.computerScienceStack[computerScienceIndex].videourl, startdate: vm.computerScienceStack[computerScienceIndex].startdate});
+                        if(!!vm.computerScienceStack[computerScienceIndex]) {
+                            vm.userStack.push({name: vm.computerScienceStack[computerScienceIndex].name, videourl: vm.computerScienceStack[computerScienceIndex].videourl, startdate: vm.computerScienceStack[computerScienceIndex].startdate});
+                        }
                         computerScienceIndex++;
                     }
 
                     if(vm.userTopics[i] === "Math") {
 
-                        vm.userStack.push({name: vm.mathStack[mathIndex].name, videourl: vm.mathStack[mathIndex].videourl, startdate: vm.mathStack[mathIndex].startdate});
+                        if(!!vm.mathStack[mathIndex]) {
+                            vm.userStack.push({name: vm.mathStack[mathIndex].name, videourl: vm.mathStack[mathIndex].videourl, startdate: vm.mathStack[mathIndex].startdate});
+                        }
                         mathIndex++;
                     }
                 }
