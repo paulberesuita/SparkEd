@@ -127,9 +127,9 @@
 
                         if(!!vm.economicsStack[economicsIndex]) {
                             vm.userStack.push({name: vm.economicsStack[economicsIndex].name, videourl: vm.economicsStack[economicsIndex].videourl, startdate: vm.economicsStack[economicsIndex].startdate});
-                            $log.debug("Adding Design content: " +  vm.economicsStack[economicsIndex].name)
+                            $log.debug("Adding Economics content: " +  vm.economicsStack[economicsIndex].name)
                         }
-                        designIndex++;
+                        economicsIndex++;
                     }
 
                     if(vm.userTopics[i] === "Math") {
