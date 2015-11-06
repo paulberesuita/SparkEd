@@ -17,20 +17,14 @@
         vm.mathStack = [];
         vm.physicsStack = [];
 
-
-        //80% perfect of user stack will contain selected topics; the other 20% will contain non-selected topics
-        //Step 1: create user stack
         vm.userStack = [];
-        //Step 2: determine the  topics selected
         vm.userTopics = [];
-        //Step 3: based on number of topics selected determine what percentage of the 80% will be split among the topics
+
         var computerScienceIndex = 0;
         var physicsIndex = 0;
         var designIndex = 0;
         var economicsIndex = 0;
         var mathIndex = 0;
-
-        //Step 4: The news need will contain at most 20 items for now; While the selected topics stack contain data keep pushing to the user stack
 
         $scope.trustSrc = function(src) {
             return $sce.trustAsResourceUrl(src);
@@ -40,6 +34,7 @@
         //Loading topics for new users
         var contentPromise = ServicesDataFirebase.getContent();
 
+        //Get topics of interest for the logged in user
         var getTopicsPromise = UserDataFirebase.getUserTopics($rootScope.currentUserPathID);
 
         $q.all([contentPromise, getTopicsPromise]).then(function(data){
@@ -161,10 +156,11 @@
                 vm.numberOfItemsToDisplay--;
             }
 
+            //We are gonna randomize the objects store in the user stack
+            vm.userStack.sort(function() { return 0.5 - Math.random() });
 
             console.log(data[0], data[1]);
         });
-
 
     };
 
