@@ -64,7 +64,8 @@ angular.module('sparked', ['ionic', 'youtube-embed', 'firebase'])
           url: '/explore',
           views: {
               'explore-tab': {
-                  templateUrl: 'app/explore/views/explore.html'
+                  templateUrl: 'app/explore/views/explore.html',
+                  controller: 'ExploreController as explore'
               }
           }
       })
