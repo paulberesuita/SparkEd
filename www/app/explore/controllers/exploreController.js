@@ -109,10 +109,6 @@
 
             }
 
-
-            vm.userTopics = data[1];
-            vm.numberOfItemsToDisplay = 12; //Total will be 4 * number of topics selected
-
             //We are gonna randomize the objects store in the user stack
             vm.userStack.sort(function() { return 0.5 - Math.random() });
 
