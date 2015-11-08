@@ -7,9 +7,17 @@
                 <div class="list card">
 
                     <div class="item item-avatar item-icon-left item-divider">
-                        <i class="icon ion-ios-book"></i>
-                        <h2>{{home.userStack[$index].name}}</h2>
-                        <p>{{home.userStack[$index].startdate}}</p>
+
+                        <span ng-if="home.userStack[$index].type === 'video'">
+                            <i class="icon ion-ios-videocam"></i>
+                            <h2 style="padding-top: 11px; padding-bottom: 10px;">{{home.userStack[$index].name}}</h2>
+                        </span>
+                        <span ng-if="home.userStack[$index].type === 'course'">
+                            <i class="icon ion-ios-book"></i>
+                            <h2>{{home.userStack[$index].name}}</h2>
+                            <p>Start Date: {{home.userStack[$index].startdate}}</p>
+                        </span>
+
                     </div>
 
                     <div class="item item-image">
@@ -29,10 +37,19 @@
             <div class="col col-50" >
                 <div class="list card">
 
+
                     <div class="item item-avatar item-icon-left item-divider">
-                        <i class="icon ion-ios-book"></i>
-                        <h2>{{home.userStack[$index+1].name}}</h2>
-                        <p>{{home.userStack[$index+1].startdate}}</p>
+
+                        <span ng-if="home.userStack[$index+1].type === 'video'">
+                            <i class="icon ion-ios-videocam"></i>
+                            <h2 style="padding-top: 11px; padding-bottom: 10px;">{{home.userStack[$index].name}}</h2>
+                        </span>
+                        <span ng-if="home.userStack[$index+1].type === 'course'">
+                            <i class="icon ion-ios-book"></i>
+                            <h2>{{home.userStack[$index+1].name}}</h2>
+                            <p>Start Date: {{home.userStack[$index+1].startdate}}</p>
+                        </span>
+
                     </div>
 
                     <div class="item item-image">
