@@ -44,3 +44,7 @@
 .bar.bar-stable .title {
     color: #FFF;
 }
+
+.list:last-child.card {
+    margin-bottom: 0;
+}
