@@ -40,10 +40,12 @@
                     var allcontentArrayComputerScience = _.values(allcontentArray[i].computerscience);
 
                     for(var c = 0; c < allcontentArrayComputerScience.length; c++) {
-                        vm.userStack.push({  name: allcontentArrayComputerScience[c].name,
-                            videourl: allcontentArrayComputerScience[c].videourl,
-                            startdate: allcontentArrayComputerScience[c].startdate,
-                            type: allcontentArrayComputerScience[c].type});
+                        vm.userStack.push({ name: allcontentArrayComputerScience[c].name,
+                                            videourl: allcontentArrayComputerScience[c].videourl,
+                                            startdate: allcontentArrayComputerScience[c].startdate,
+                                            type: allcontentArrayComputerScience[c].type,
+                                            subject: allcontentArrayComputerScience[c].subject
+                        });
                     }
                 }
 
@@ -52,10 +54,12 @@
                     var allcontentArrayDesign = _.values(allcontentArray[i].design);
 
                     for(var m = 0; m < allcontentArrayDesign.length; m++) {
-                        vm.userStack.push({   name: allcontentArrayDesign[m].name,
-                            videourl: allcontentArrayDesign[m].videourl,
-                            startdate: allcontentArrayDesign[m].startdate,
-                            type: allcontentArrayDesign[m].type});
+                        vm.userStack.push({ name: allcontentArrayDesign[m].name,
+                                            videourl: allcontentArrayDesign[m].videourl,
+                                            startdate: allcontentArrayDesign[m].startdate,
+                                            type: allcontentArrayDesign[m].type,
+                                            subject: allcontentArrayDesign[m].subject
+                        });
                     }
                 }
 
@@ -64,10 +68,12 @@
                     var allcontentArrayEconomics = _.values(allcontentArray[i].economics);
 
                     for(var m = 0; m < allcontentArrayEconomics.length; m++) {
-                        vm.userStack.push({    name: allcontentArrayEconomics[m].name,
-                            videourl: allcontentArrayEconomics[m].videourl,
-                            startdate: allcontentArrayEconomics[m].startdate,
-                            type: allcontentArrayEconomics[m].type});
+                        vm.userStack.push({ name: allcontentArrayEconomics[m].name,
+                                            videourl: allcontentArrayEconomics[m].videourl,
+                                            startdate: allcontentArrayEconomics[m].startdate,
+                                            type: allcontentArrayEconomics[m].type,
+                                            subject: allcontentArrayEconomics[m].subject
+                        });
                     }
                 }
 
@@ -76,10 +82,12 @@
                     var allcontentArrayGeneral = _.values(allcontentArray[i].general);
 
                     for(var m = 0; m < allcontentArrayGeneral.length; m++) {
-                        vm.userStack.push({  name: allcontentArrayGeneral[m].name,
-                            videourl: allcontentArrayGeneral[m].videourl,
-                            startdate: allcontentArrayGeneral[m].startdate,
-                            type: allcontentArrayGeneral[m].type});
+                        vm.userStack.push({ name: allcontentArrayGeneral[m].name,
+                                            videourl: allcontentArrayGeneral[m].videourl,
+                                            startdate: allcontentArrayGeneral[m].startdate,
+                                            type: allcontentArrayGeneral[m].type,
+                                            subject: allcontentArrayGeneral[m].subject
+                        });
                     }
                 }
 
@@ -89,9 +97,11 @@
 
                     for(var m = 0; m < allcontentArrayMath.length; m++) {
                         vm.userStack.push({ name: allcontentArrayMath[m].name,
-                            videourl: allcontentArrayMath[m].videourl,
-                            startdate: allcontentArrayMath[m].startdate,
-                            type: allcontentArrayMath[m].type});
+                                            videourl: allcontentArrayMath[m].videourl,
+                                            startdate: allcontentArrayMath[m].startdate,
+                                            type: allcontentArrayMath[m].type,
+                                            subject: allcontentArrayMath[m].subject
+                        });
                     }
                 }
 
@@ -100,10 +110,12 @@
                     var allcontentArrayPhysics = _.values(allcontentArray[i].physics);
 
                     for(var m = 0; m < allcontentArrayPhysics.length; m++) {
-                        vm.userStack.push({  name: allcontentArrayPhysics[m].name,
-                            videourl: allcontentArrayPhysics[m].videourl,
-                            startdate: allcontentArrayPhysics[m].startdate,
-                            type: allcontentArrayPhysics[m].type});
+                        vm.userStack.push({ name: allcontentArrayPhysics[m].name,
+                                            videourl: allcontentArrayPhysics[m].videourl,
+                                            startdate: allcontentArrayPhysics[m].startdate,
+                                            type: allcontentArrayPhysics[m].type,
+                                            subject: allcontentArrayPhysics[m].subject
+                        });
                     }
                 }
 

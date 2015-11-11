@@ -25,8 +25,9 @@
 
             <div class="list list-inset">
 
-                <div class="item item-divider">
+                <div style="padding-top: 15px; padding-bottom: 15px;" class="item item-divider">
                     Topics of Interest
+                    <button style="float: right;" class="button button-small">Edit</button>
                 </div>
                 <ion-list>
                     <ion-item ng-repeat="topic in profile.topicsnames" ng-model="topics.selected[topic.name]">{{topic.name}}</ion-item>
@@ -36,7 +37,7 @@
 
             <div class="list list-inset">
 
-                <div class="item item-divider">
+                <div style="padding-top: 15px; padding-bottom: 15px;" class="item item-divider">
                     Goals
                 </div>
                 <div class="item">

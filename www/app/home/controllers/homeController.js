@@ -51,7 +51,9 @@
                         vm.computerScienceStack.push({  name: allcontentArrayComputerScience[c].name,
                                                         videourl: allcontentArrayComputerScience[c].videourl,
                                                         startdate: allcontentArrayComputerScience[c].startdate,
-                                                        type: allcontentArrayComputerScience[c].type});
+                                                        type: allcontentArrayComputerScience[c].type,
+                                                        subject: allcontentArrayComputerScience[c].subject
+                        });
                     }
                 }
 
@@ -63,7 +65,9 @@
                         vm.designStack.push({   name: allcontentArrayDesign[m].name,
                                                 videourl: allcontentArrayDesign[m].videourl,
                                                 startdate: allcontentArrayDesign[m].startdate,
-                                                type: allcontentArrayDesign[m].type});
+                                                type: allcontentArrayDesign[m].type,
+                                                subject: allcontentArrayDesign[m].subject
+                        });
                     }
                 }
 
@@ -75,7 +79,9 @@
                         vm.economicsStack.push({    name: allcontentArrayEconomics[m].name,
                                                     videourl: allcontentArrayEconomics[m].videourl,
                                                     startdate: allcontentArrayEconomics[m].startdate,
-                                                    type: allcontentArrayEconomics[m].type});
+                                                    type: allcontentArrayEconomics[m].type,
+                                                    subject: allcontentArrayEconomics[m].subject
+                        });
                     }
                 }
 
@@ -87,7 +93,9 @@
                         vm.generalStack.push({  name: allcontentArrayGeneral[m].name,
                                                 videourl: allcontentArrayGeneral[m].videourl,
                                                 startdate: allcontentArrayGeneral[m].startdate,
-                                                type: allcontentArrayGeneral[m].type});
+                                                type: allcontentArrayGeneral[m].type,
+                                                subject: allcontentArrayGeneral[m].subject
+                        });
                     }
                 }
 
@@ -99,7 +107,9 @@
                         vm.mathStack.push({ name: allcontentArrayMath[m].name,
                                             videourl: allcontentArrayMath[m].videourl,
                                             startdate: allcontentArrayMath[m].startdate,
-                                            type: allcontentArrayMath[m].type});
+                                            type: allcontentArrayMath[m].type,
+                                            subject: allcontentArrayMath[m].subject
+                        });
                     }
                 }
 
@@ -111,7 +121,9 @@
                         vm.physicsStack.push({  name: allcontentArrayPhysics[m].name,
                                                 videourl: allcontentArrayPhysics[m].videourl,
                                                 startdate: allcontentArrayPhysics[m].startdate,
-                                                type: allcontentArrayPhysics[m].type});
+                                                type: allcontentArrayPhysics[m].type,
+                                                subject: allcontentArrayPhysics[m].subject
+                        });
                     }
                 }
 
@@ -129,7 +141,9 @@
                             vm.userStack.push({ name: vm.computerScienceStack[computerScienceIndex].name,
                                                 videourl: vm.computerScienceStack[computerScienceIndex].videourl,
                                                 startdate: vm.computerScienceStack[computerScienceIndex].startdate,
-                                                type: vm.computerScienceStack[computerScienceIndex].type});
+                                                type: vm.computerScienceStack[computerScienceIndex].type,
+                                                subject: vm.computerScienceStack[computerScienceIndex].subject
+                            });
                             $log.debug("Adding CS content: " +  vm.computerScienceStack[computerScienceIndex].name)
                         }
                         computerScienceIndex++;
@@ -141,7 +155,9 @@
                             vm.userStack.push({ name: vm.designStack[designIndex].name,
                                                 videourl: vm.designStack[designIndex].videourl,
                                                 startdate: vm.designStack[designIndex].startdate,
-                                                type: vm.designStack[designIndex].type});
+                                                type: vm.designStack[designIndex].type,
+                                                subject: vm.designStack[designIndex].subject
+                            });
                             $log.debug("Adding Design content: " +  vm.designStack[designIndex].name)
                         }
                         designIndex++;
@@ -153,7 +169,9 @@
                             vm.userStack.push({ name: vm.economicsStack[economicsIndex].name,
                                                 videourl: vm.economicsStack[economicsIndex].videourl,
                                                 startdate: vm.economicsStack[economicsIndex].startdate,
-                                                type: vm.economicsStack[economicsIndex].type});
+                                                type: vm.economicsStack[economicsIndex].type,
+                                                subject: vm.economicsStack[economicsIndex].subject
+                            });
                             $log.debug("Adding Economics content: " +  vm.economicsStack[economicsIndex].name)
                         }
                         economicsIndex++;
@@ -165,7 +183,9 @@
                             vm.userStack.push({ name: vm.mathStack[mathIndex].name,
                                                 videourl: vm.mathStack[mathIndex].videourl,
                                                 startdate: vm.mathStack[mathIndex].startdate,
-                                                type: vm.mathStack[mathIndex].type});
+                                                type: vm.mathStack[mathIndex].type,
+                                                subject: vm.mathStack[mathIndex].subject
+                            });
                             $log.debug("Adding Math content: " +  vm.mathStack[mathIndex].name)
                         }
                         mathIndex++;
@@ -177,7 +197,9 @@
                             vm.userStack.push({ name: vm.physicsStack[physicsIndex].name,
                                                 videourl: vm.physicsStack[physicsIndex].videourl,
                                                 startdate: vm.physicsStack[physicsIndex].startdate,
-                                                type: vm.physicsStack[physicsIndex].type});
+                                                type: vm.physicsStack[physicsIndex].type,
+                                                subject: vm.physicsStack[physicsIndex].subject
+                            });
                             $log.debug("Adding Physics content: " +  vm.physicsStack[physicsIndex].name)
                         }
                         physicsIndex++;

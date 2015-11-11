@@ -26,6 +26,21 @@
                         </div>
                     </div>
 
+                    <div class="item tabs tabs-secondary tabs-icon-left">
+
+                        <p  style="font-size: 15px;" class="tab-item" href="#">
+                            {{home.userStack[$index].subject}}
+                        </p>
+
+                        <a class="tab-item" href="#">
+                            <i class="icon ion-thumbsup"></i>
+                            Like
+                        </a>
+                        <a class="tab-item" href="#">
+                            <i class="icon ion-share"></i>
+                            Share
+                        </a>
+                    </div>
                     <!--<a class="item item-icon-left assertive" href="#">-->
                         <!--<i class="icon ion-happy-outline"></i>-->
                         <!--Never Give Up!-->
@@ -56,6 +71,22 @@
                         <div class="embed-responsive embed-responsive-16by9">
                             <iframe class="embed-responsive-item" ng-src="{{trustSrc(home.userStack[$index+1].videourl)}}" frameborder="0" allowfullscreen></iframe>
                         </div>
+                    </div>
+
+                    <div class="item tabs tabs-secondary tabs-icon-left">
+
+                        <p style="font-size: 15px;" class="tab-item" href="#">
+                            {{home.userStack[$index+1].subject}}
+                        </p>
+
+                        <a class="tab-item" href="#">
+                            <i class="icon ion-thumbsup"></i>
+                            Like
+                        </a>
+                        <a class="tab-item" href="#">
+                            <i class="icon ion-share"></i>
+                            Share
+                        </a>
                     </div>
 
                 </div>
