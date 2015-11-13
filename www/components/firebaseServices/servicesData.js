@@ -12,6 +12,7 @@
 
         var service = {
             getTopics: getTopics,
+            getGoals: getGoals,
             getContent: getContent,
             getAll: getAll
         };
@@ -29,6 +30,28 @@
                 var topicsArray = _.values(allData.topics);
 
                 deferred.resolve(topicsArray);
+
+            }).catch(function(err) {
+
+                deferred.reject(err);
+
+            });
+
+            return deferred.promise;
+
+        }
+
+        function getGoals() {
+
+            var deferred = $q.defer();
+
+            var allData = $firebaseObject(ref);
+
+            allData.$loaded().then(function() {
+
+                var goalsArray = _.values(allData.goals);
+
+                deferred.resolve(goalsArray);
 
             }).catch(function(err) {
 
