@@ -11,7 +11,9 @@
         var vm = this;
 
         vm.topicsnames = [];
-        vm.selected = {};
+        vm.goalsnames = [];
+        vm.selectedSubjects = {};
+        vm.selectedGoals = {};
 
         //Loading topics for new users
         var topicsPromise = ServicesDataFirebase.getTopics();
@@ -29,9 +31,27 @@
 
         });
 
+        //Loading goals for new users
+        var goalsPromise = ServicesDataFirebase.getGoals();
+        goalsPromise.then(function(goals) {
+
+            for (var i = 0; i < goals.length; i++) {
+                vm.goalsnames.push({name: goals[i]});
+            }
+
+            console.log("Goals loaded");
+
+        }, function(reason) {
+
+            console.error(reason);
+
+        });
+
         vm.switchToHome = function() {
 
-            UserDataFirebase.saveUserTopicsData($rootScope.currentUserPathID, vm.selected);
+            UserDataFirebase.saveUserTopicsData($rootScope.currentUserPathID, vm.selectedSubjects);
+            UserDataFirebase.saveUserGoalsData($rootScope.currentUserPathID, vm.selectedGoals);
+
             $state.go('tabs.home');
 
             vm.showLogin = !vm.showLogin;

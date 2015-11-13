@@ -30,7 +30,7 @@
                     <button style="float: right;" class="button button-small">Edit</button>
                 </div>
                 <ion-list>
-                    <ion-item ng-repeat="topic in profile.topicsnames" ng-model="topics.selected[topic.name]">{{topic.name}}</ion-item>
+                    <ion-item ng-repeat="topic in profile.topicsnames">{{topic.name}}</ion-item>
                 </ion-list>
 
             </div>
@@ -40,8 +40,9 @@
                 <div style="padding-top: 15px; padding-bottom: 15px;" class="item item-divider">
                     Goals
                 </div>
-                <div class="item">
-                </div>
+                <ion-list>
+                    <ion-item ng-repeat="goal in profile.goalsnames">{{goal.name}}</ion-item>
+                </ion-list>
 
             </div>
 

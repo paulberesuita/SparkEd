@@ -1,10 +1,19 @@
 <ion-view title="Topics of Interest">
     <ion-content padding="true" class="has-header">
-        <h4>Let's get to know you</h4>
-        <h5>Please tell us what are some of your favorite subjects</h5>
+
+        <h4>What are some favorite subjects?</h4>
         <ion-list>
-            <ion-checkbox ng-repeat="topic in topics.topicsnames" ng-model="topics.selected[topic.name]">{{topic.name}}</ion-checkbox>
+            <ion-checkbox ng-repeat="topic in topics.topicsnames" ng-model="topics.selectedSubjects[topic.name]">{{topic.name}}</ion-checkbox>
         </ion-list>
-        <button class="button button-stable button-block" ng-click="topics.switchToHome()">Done</button>
+
+        <br>
+
+        <h4>What are your goals?</h4>
+        <ion-list>
+            <ion-checkbox ng-repeat="goal in topics.goalsnames" ng-model="topics.selectedGoals[goal.name]">{{goal.name}}</ion-checkbox>
+        </ion-list>
+
+        <button class="button button-balanced button-block" ng-click="topics.switchToHome()">Start Exploring</button>
+
     </ion-content>
 </ion-view>

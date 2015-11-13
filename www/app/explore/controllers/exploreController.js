@@ -19,7 +19,7 @@
         var mathIndex = 0;
 
         $scope.trustSrc = function(src) {
-            return $sce.trustAsResourceUrl(src);
+            return $sce.trustAsResourceUrl(src + "?showinfo=0");
         };
 
 

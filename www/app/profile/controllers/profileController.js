@@ -10,6 +10,7 @@
 
         var vm = this;
         vm.topicsnames = [];
+        vm.goalsnames = [];
         vm.userNumber = "Enter Number";
         vm.editMode = false;
 
@@ -27,6 +28,23 @@
             console.error(reason);
 
         });
+
+        var getGoalsPromise = UserDataFirebase.getUserGoals($rootScope.currentUserPathID);
+
+        getGoalsPromise.then(function(goals) {
+
+            for (var i = 0; i < goals.length; i++) {
+                vm.goalsnames.push({name: goals[i]});
+            }
+            console.log("User Goals loaded");
+
+        }, function(reason) {
+
+            console.error(reason);
+
+        });
+
+
 
         vm.saveUserNumber = function() {
 
