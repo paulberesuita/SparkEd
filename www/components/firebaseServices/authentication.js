@@ -4,15 +4,17 @@
 
     angular.module('sparked').factory('AuthenticationFirebase', AuthenticationFirebase);
 
-    AuthenticationFirebase.$inject = ['$q', '$ionicLoading'];
+    AuthenticationFirebase.$inject = ['$q', '$ionicLoading', '$firebaseAuth'];
 
-    function AuthenticationFirebase($q, $ionicLoading) {
+    function AuthenticationFirebase($q, $ionicLoading, $firebaseAuth) {
 
         var ref = new Firebase("https://paul-sparkedu.firebaseio.com/");
+        var authObj = $firebaseAuth(ref);
 
         var service = {
             createUser: createUser,
-            loginUser: loginUser
+            loginUser: loginUser,
+            logout: logout
         };
 
         return service;
@@ -68,6 +70,10 @@
             });
 
             return deferred.promise;
+        }
+
+        function logout() {
+            authObj.$unauth();
         }
 
 

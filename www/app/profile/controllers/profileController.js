@@ -82,7 +82,13 @@
 
             });
 
-        }
+        };
+
+        vm.logout = function() {
+            AuthenticationFirebase.logout();
+            console.log("logout performed");
+            $state.go('welcome');
+        };
 
     };
 
