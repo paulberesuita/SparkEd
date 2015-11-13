@@ -14,6 +14,7 @@
             getTopics: getTopics,
             getGoals: getGoals,
             getContent: getContent,
+            getUsers: getUsers,
             getAll: getAll
         };
 
@@ -74,6 +75,28 @@
                 //var coursesArray = _.values(allData.content);
 
                 deferred.resolve(allData.content);
+
+            }).catch(function(err) {
+
+                deferred.reject(err);
+
+            });
+
+            return deferred.promise;
+
+        }
+
+        function getUsers() {
+
+            var deferred = $q.defer();
+
+            var allData = $firebaseObject(ref);
+
+            allData.$loaded().then(function() {
+
+                //var coursesArray = _.values(allData.content);
+
+                deferred.resolve(allData.users);
 
             }).catch(function(err) {
 

@@ -65,7 +65,7 @@
                 } else {
                     $ionicLoading.hide();
                     deferred.resolve(authData);
-                    console.log("Authenticated successfully with payload:", authData);
+                    console.log("Authenticated successfully with uid:", authData.uid);
                 }
             });
 
