@@ -48,3 +48,12 @@
 .list:last-child.card {
     margin-bottom: 0;
 }
+
+.scroll {
+    height: 100%;
+}
+
+#map {
+    height: 100%;
+    width: 100%;
+}

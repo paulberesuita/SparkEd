@@ -13,7 +13,8 @@
             saveUserGoalsData: saveUserGoalsData,
             getUserTopics: getUserTopics,
             getUserGoals: getUserGoals,
-            saveUserTelelphoneNumber: saveUserTelelphoneNumber
+            saveUserTelelphoneNumber: saveUserTelelphoneNumber,
+            saveUserLocation: saveUserLocation
         };
 
         return service;
@@ -38,6 +39,12 @@
             var path = "https://paul-sparkedu.firebaseio.com/users/" + userpath;
             var ref = new Firebase(path);
             ref.update({ number: dataValue});
+        }
+
+        function saveUserLocation(userpath, lat, long) {
+            var path = "https://paul-sparkedu.firebaseio.com/users/" + userpath;
+            var ref = new Firebase(path);
+            ref.update({ locationLatitude: lat, locationLongitude: long});
         }
 
         function getUserTopics(userpath) {

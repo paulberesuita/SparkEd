@@ -37,7 +37,7 @@
                 var usersRef = new Firebase("https://paul-sparkedu.firebaseio.com/users");
 
                 var list = $firebaseArray(usersRef);
-                list.$add({ 'user_id': userData.uid, 'username': vm.newuser.username, 'topics': "", 'number': ""}).then(function(ref) {
+                list.$add({ 'user_id': userData.uid, 'username': vm.newuser.username, 'topics': "", 'number': "", 'locationLatitude': "", 'locationLongitude': ""}).then(function(ref) {
                     var id = ref.key();
                     console.log("added record with id " + id);
                     $rootScope.currentUserPathID= id;
