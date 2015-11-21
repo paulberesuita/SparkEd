@@ -4,11 +4,50 @@
 
     angular.module('sparked').controller('ConnectController', ConnectController);
 
-    ConnectController.$inject = ['$scope', '$rootScope', 'AuthenticationFirebase', '$state', '$firebaseArray', '$firebaseObject', 'UserDataFirebase', '$timeout'];
+    ConnectController.$inject = ['$scope', '$rootScope', 'AuthenticationFirebase', '$state', '$firebaseArray', '$firebaseObject', 'UserDataFirebase', '$timeout', 'ServicesDataFirebase'];
 
-    function ConnectController($scope, $rootScope, AuthenticationFirebase, $state, $firebaseArray, $firebaseObject, UserDataFirebase, $timeout) {
+    function ConnectController($scope, $rootScope, AuthenticationFirebase, $state, $firebaseArray, $firebaseObject, UserDataFirebase, $timeout, ServicesDataFirebase) {
 
         var vm = this;
+
+        //Get all of the users latitude/longitudes
+        var usersPromise = ServicesDataFirebase.getUsers();
+        usersPromise.then(function(users) {
+
+        var allUsersArray = _.values(users);
+
+        for(var i = 0; i < allUsersArray.length; i++) {
+
+                LatLong = new google.maps.LatLng(allUsersArray[i].locationLatitude, allUsersArray[i].locationLongitude);
+
+                var marker = new google.maps.Marker({
+                    position: LatLong,
+                    map: map,
+                    title: 'Marker'
+                });
+
+                var infowindow = new google.maps.InfoWindow({
+                    content: "test"
+                });
+
+                google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                    return function() {
+                        infowindow.setContent("test");
+                        infowindow.open(map, marker);
+                    }
+                })(marker, i));
+
+                console.log("Lat Long");
+
+            }
+
+            console.log("Grabbed all users");
+
+        }, function(reason) {
+
+            console.error(reason);
+
+        });
 
         var LatLong = new google.maps.LatLng(37, -120);
         console.log(LatLong);
@@ -23,41 +62,6 @@
 
 
         navigator.geolocation.getCurrentPosition(function(pos){
-
-            UserDataFirebase.saveUserLocation($rootScope.currentUserPathID, pos.coords.latitude, pos.coords.longitude);
-
-            LatLong = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
-
-            var geocoder= new google.maps.Geocoder();
-
-            geocoder.geocode({ 'latLng': LatLong }, function (results, status) {
-                var result = results[0];
-                var state = '';
-
-                for (var i = 0, len = result.address_components.length; i < len; i++) {
-                    var ac = result.address_components[i];
-
-                    if (ac.types.indexOf('administrative_area_level_1') >= 0) {
-                        state = ac.short_name;
-                    }
-                }
-
-                UserDataFirebase.saveUserCityState($rootScope.currentUserPathID, result.address_components[2]["short_name"], state);
-
-                console.log("result: " + result.address_components[2]["short_name"]);
-                console.log("state: " + state);
-
-                //$('#yourInputBox').val(state);
-
-            });
-
-            map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
-
-            var marker = new google.maps.Marker({
-                position: LatLong,
-                map: map,
-                title: 'Marker'
-            });
 
             var contentString = '<div id="content">'+
                 '<div id="siteNotice">'+
@@ -80,13 +84,54 @@
                 '</div>'+
                 '</div>';
 
-            var infowindow = new google.maps.InfoWindow({
-                content: contentString
+            UserDataFirebase.saveUserLocation($rootScope.currentUserPathID, pos.coords.latitude, pos.coords.longitude);
+
+            LatLong = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
+
+            var geocoder= new google.maps.Geocoder();
+
+            geocoder.geocode({ 'latLng': LatLong }, function (results, status) {
+
+                var result = results[0];
+                var state = '';
+
+                for (var i = 0, len = result.address_components.length; i < len; i++) {
+                    var ac = result.address_components[i];
+
+                    if (ac.types.indexOf('administrative_area_level_1') >= 0) {
+                        state = ac.short_name;
+                    }
+                }
+
+                UserDataFirebase.saveUserCityState($rootScope.currentUserPathID, result.address_components[2]["short_name"], state);
+
+                var city = result.address_components[2]["short_name"];
+
+                console.log("result: " + city);
+                console.log("state: " + state);
+
+                contentString = city + ", " + state;
+
+
+                var marker = new google.maps.Marker({
+                    position: LatLong,
+                    map: map,
+                    title: 'Marker'
+                });
+
+
+                var infowindow = new google.maps.InfoWindow({
+                    content: contentString
+                });
+
+                marker.addListener('click', function() {
+                    infowindow.open(map, marker);
+                });
+
             });
 
-            marker.addListener('click', function() {
-                infowindow.open(map, marker);
-            });
+            map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
+
 
         });
 
