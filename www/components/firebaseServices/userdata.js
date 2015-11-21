@@ -14,7 +14,8 @@
             getUserTopics: getUserTopics,
             getUserGoals: getUserGoals,
             saveUserTelelphoneNumber: saveUserTelelphoneNumber,
-            saveUserLocation: saveUserLocation
+            saveUserLocation: saveUserLocation,
+            saveUserCityState: saveUserCityState
         };
 
         return service;
@@ -45,6 +46,12 @@
             var path = "https://paul-sparkedu.firebaseio.com/users/" + userpath;
             var ref = new Firebase(path);
             ref.update({ locationLatitude: lat, locationLongitude: long});
+        }
+
+        function saveUserCityState(userpath, city, state) {
+            var path = "https://paul-sparkedu.firebaseio.com/users/" + userpath;
+            var ref = new Firebase(path);
+            ref.update({ city: city, state: state});
         }
 
         function getUserTopics(userpath) {
