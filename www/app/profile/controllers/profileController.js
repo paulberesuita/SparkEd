@@ -13,6 +13,7 @@
         vm.goalsnames = [];
         vm.userNumber = "Enter Number";
         vm.editMode = false;
+        vm.name = $rootScope.name;
 
         var getTopicsPromise = UserDataFirebase.getUserTopics($rootScope.currentUserPathID);
 

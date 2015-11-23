@@ -8,6 +8,7 @@ angular.module('sparked', ['ionic', 'youtube-embed', 'firebase'])
 .run(function($ionicPlatform, $rootScope) {
 
     $rootScope.currentUserPathID = "";
+    $rootScope.name = "";
 
     $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -26,34 +27,6 @@ angular.module('sparked', ['ionic', 'youtube-embed', 'firebase'])
       StatusBar.styleDefault();
     }
     });
-
-    $rootScope.$on('$stateChangeStart',
-        function(event, toState, toParams, fromState, fromParams){
-
-            //google.maps.event.addDomListener(window, "load", function(){
-            //
-            //    var LatLong = new google.maps.LatLng(37, -120);
-            //    console.log(LatLong);
-            //
-            //    var mapOptions = {
-            //        center: LatLong,
-            //        zoom: 15,
-            //        mapTypeId: google.maps.MapTypeId.ROADMAP
-            //    };
-            //
-            //    var map =  new google.maps.Map(document.getElementById("map"), mapOptions);
-            //
-            //    navigator.geolocation.getCurrentPosition(function(pos){
-            //
-            //        map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
-            //
-            //    });
-            //
-            //    $scope.map = map;
-            //
-            //});
-            console.log("change transition");
-    })
 
 }).config(function($stateProvider, $urlRouterProvider) {
 

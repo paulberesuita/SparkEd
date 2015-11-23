@@ -10,135 +10,155 @@
 
         var vm = this;
 
-        //Get all of the users latitude/longitudes
-        var usersPromise = ServicesDataFirebase.getUsers();
-        usersPromise.then(function(users) {
-
-        var allUsersArray = _.values(users);
-
-        for(var i = 0; i < allUsersArray.length; i++) {
-
-                LatLong = new google.maps.LatLng(allUsersArray[i].locationLatitude, allUsersArray[i].locationLongitude);
-
-                var marker = new google.maps.Marker({
-                    position: LatLong,
-                    map: map,
-                    title: 'Marker'
-                });
-
-                var infowindow = new google.maps.InfoWindow({
-                    content: "test"
-                });
-
-                google.maps.event.addListener(marker, 'click', (function(marker, i) {
-                    return function() {
-                        infowindow.setContent("test");
-                        infowindow.open(map, marker);
-                    }
-                })(marker, i));
-
-                console.log("Lat Long");
-
-            }
-
-            console.log("Grabbed all users");
-
-        }, function(reason) {
-
-            console.error(reason);
-
-        });
-
-        var LatLong = new google.maps.LatLng(37, -120);
-        console.log(LatLong);
-
         var mapOptions = {
-            center: LatLong,
+            center: new google.maps.LatLng(40.601203, -8.668173),
             zoom: 15,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
+            mapTypeId: 'roadmap'
         };
 
-        var map =  new google.maps.Map(document.getElementById("map"), mapOptions);
+        var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+        // a new Info Window is created
+        var infoWindow = new google.maps.InfoWindow();
+
+        // Event that closes the Info Window with a click on the map
+        google.maps.event.addListener(map, 'click', function () {
+            infoWindow.close();
+        });
+
+        // Finally displayMarkers() function is called to begin the markers creation
+        displayMarkers();
 
 
-        navigator.geolocation.getCurrentPosition(function(pos){
+        function displayMarkers(users) {
 
-            var contentString = '<div id="content">'+
-                '<div id="siteNotice">'+
-                '</div>'+
-                '<h1 id="firstHeading" class="firstHeading">Paul Beresuita</h1>'+
-                '<div id="bodyContent">'+
-                '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
-                'sandstone rock formation in the southern part of the '+
-                'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) '+
-                'south west of the nearest large town, Alice Springs; 450&#160;km '+
-                '(280&#160;mi) by road. Kata Tjuta and Uluru are the two major '+
-                'features of the Uluru - Kata Tjuta National Park. Uluru is '+
-                'sacred to the Pitjantjatjara and Yankunytjatjara, the '+
-                'Aboriginal people of the area. It has many springs, waterholes, '+
-                'rock caves and ancient paintings. Uluru is listed as a World '+
-                'Heritage Site.</p>'+
-                '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
-                'https://en.wikipedia.org/w/index.php?title=Uluru</a> '+
-                '(last visited June 22, 2009).</p>'+
-                '</div>'+
-                '</div>';
+            // this variable sets the map bounds and zoom level according to markers position
+            var bounds = new google.maps.LatLngBounds();
 
-            UserDataFirebase.saveUserLocation($rootScope.currentUserPathID, pos.coords.latitude, pos.coords.longitude);
+            var allUsersArray = _.values(users);
 
-            LatLong = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
+            // For loop that runs through the info on markersData making it possible to createMarker function to create the markers
+            for (var i = 0; i < allUsersArray.length; i++) {
 
-            var geocoder= new google.maps.Geocoder();
+                var latlng = new google.maps.LatLng(allUsersArray[i].locationLatitude, allUsersArray[i].locationLongitude);
 
-            geocoder.geocode({ 'latLng': LatLong }, function (results, status) {
+                var allTopics = _.allKeys(allUsersArray[i].topics.topics);
+                var name = allUsersArray[i].name;
 
-                var result = results[0];
-                var state = '';
+                var topicsOfInterest = "";
 
-                for (var i = 0, len = result.address_components.length; i < len; i++) {
-                    var ac = result.address_components[i];
+                for (var j = 0; j < allTopics.length; j++) {
 
-                    if (ac.types.indexOf('administrative_area_level_1') >= 0) {
-                        state = ac.short_name;
+                    if (j === allTopics.length - 1) {
+                        topicsOfInterest = topicsOfInterest + allTopics[j];
+
+                    } else {
+                        topicsOfInterest = topicsOfInterest + allTopics[j] + ", ";
                     }
+
                 }
 
-                UserDataFirebase.saveUserCityState($rootScope.currentUserPathID, result.address_components[2]["short_name"], state);
+                createMarker(latlng, topicsOfInterest, name);
 
-                var city = result.address_components[2]["short_name"];
+                // Marker’s Lat. and Lng. values are added to bounds variable
+                bounds.extend(latlng);
+            }
 
-                console.log("result: " + city);
-                console.log("state: " + state);
+            // Finally the bounds variable is used to set the map bounds
+            // with API’s fitBounds() function
+            //map.fitBounds(bounds);
+        }
 
-                contentString = city + ", " + state;
+        function createMarker(latlng, allTopics, name) {
+            var marker = new google.maps.Marker({
+                map: map,
+                position: latlng,
+                title: allTopics
+            });
+
+            // This event expects a click on a marker
+            // When this event is fired the infowindow content is created
+            // and the infowindow is opened
+            google.maps.event.addListener(marker, 'click', function () {
+
+                // Variable to define the HTML content to be inserted in the infowindow
+                var iwContent = '<div id="iw_container">' +
+                    '<div class="iw_title"><b>' + name + '</b></div></div>' +
+                    '<div class="iw_title">' + allTopics +  '</div></div>';
+
+                infoWindow.setContent(iwContent);
+
+                // opening the infowindow in the current map and at the current marker location
+                infoWindow.open(map, marker);
+            });
+        }
+
+        //Get all of the users latitude/longitudes
+        var usersPromise = ServicesDataFirebase.getUsers();
+
+        usersPromise.then(function (users) {
+
+            displayMarkers(users);
+
+            navigator.geolocation.getCurrentPosition(function (pos) {
+
+                var contentString = "";
+
+                UserDataFirebase.saveUserLocation($rootScope.currentUserPathID, pos.coords.latitude, pos.coords.longitude);
+
+                var LatLong = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
+
+                var geocoder = new google.maps.Geocoder();
+
+                geocoder.geocode({'latLng': LatLong}, function (results, status) {
+
+                    var result = results[0];
+                    var state = '';
+
+                    for (var i = 0, len = result.address_components.length; i < len; i++) {
+                        var ac = result.address_components[i];
+
+                        if (ac.types.indexOf('administrative_area_level_1') >= 0) {
+                            state = ac.short_name;
+                        }
+                    }
+
+                    UserDataFirebase.saveUserCityState($rootScope.currentUserPathID, result.address_components[2]["short_name"], state);
+
+                    var city = result.address_components[2]["short_name"];
+
+                    console.log("result: " + city);
+                    console.log("state: " + state);
+
+                    contentString = '<div id="iw_container">' +
+                    '<div class="iw_title"><b>' + $rootScope.name + '</b></div></div>' +
+                    '<div class="iw_title">' + city + ", " + state +  '</div></div>';
+
+                    var marker = new google.maps.Marker({
+                        position: LatLong,
+                        map: map
+                    });
 
 
-                var marker = new google.maps.Marker({
-                    position: LatLong,
-                    map: map,
-                    title: 'Marker'
+                    var infowindow = new google.maps.InfoWindow({
+                        content: contentString
+                    });
+
+                    marker.addListener('click', function () {
+                        infowindow.open(map, marker);
+                    });
+
                 });
 
+                map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
 
-                var infowindow = new google.maps.InfoWindow({
-                    content: contentString
-                });
-
-                marker.addListener('click', function() {
-                    infowindow.open(map, marker);
-                });
 
             });
 
-            map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
+            $scope.map = map;
 
 
         });
 
-        $scope.map = map;
-
-
-    };
-
-
+    }
 })();

@@ -16,7 +16,7 @@
         };
 
         vm.newuser = {
-            username: "",
+            name: "",
             email: "",
             password:""
         };
@@ -36,8 +36,10 @@
 
                 var usersRef = new Firebase("https://paul-sparkedu.firebaseio.com/users");
 
+                $rootScope.name = vm.newuser.name;
+
                 var list = $firebaseArray(usersRef);
-                list.$add({ 'user_id': userData.uid, 'username': vm.newuser.username, 'topics': "", 'number': "", 'locationLatitude': "", 'locationLongitude': "", 'city': "", 'state': ""}).then(function(ref) {
+                list.$add({ 'user_id': userData.uid, 'name': vm.newuser.name, 'topics': "", 'number': "", 'locationLatitude': "", 'locationLongitude': "", 'city': "", 'state': ""}).then(function(ref) {
                     var id = ref.key();
                     console.log("added record with id " + id);
                     $rootScope.currentUserPathID= id;
@@ -83,20 +85,6 @@
             }, function(reason) {
                 vm.wrongLogin = true;
             });
-
-            //var promise = AuthenticationFirebase.loginUser(vm.existinguser.email, vm.existinguser.password).then(function(userData) {
-            //    vm.wrongLogin = false;
-            //    $state.go('tabs.home');
-            //
-            //    //Find the correct user in FB users list
-            //    //Loading topics for new users
-            //    var contentPromise = ServicesDataFirebase.getContent();
-            //
-            //    //Get topics of interest for the logged in user
-            //    var getTopicsPromise = UserDataFirebase.getUserTopics($rootScope.currentUserPathID);
-            //}, function(reason) {
-            //    vm.wrongLogin = true;
-            //});
 
         };
 
