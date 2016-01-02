@@ -6,4 +6,4 @@ SparkEd is a mobile app that aims to generate interest in educaton for young adu
 
 ## Research
 
-For more background on the goal of the app and the research done, you can view the paper [Here](https://drive.google.com/file/d/0B-YsSnjmK1pJQTJuVG5Ndm5TVU0/view?usp=sharing) 
+For more background on the goal of the app and the research done, you can view the paper [here](https://drive.google.com/file/d/0B-YsSnjmK1pJQTJuVG5Ndm5TVU0/view?usp=sharing) 
